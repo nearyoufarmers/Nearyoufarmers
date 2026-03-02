@@ -2,166 +2,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Near You Farmers | Mechanized Farming Rwanda</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Near You Farmers</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f8f4;
-            color: #333;
-            line-height: 1.6;
-        }
+<style>
+:root{
+    --green:#1B5E20;
+    --light-green:#2e7d32;
+    --gray:#f4f6f4;
+}
 
-        nav {
-            background: #1b5e20;
-            padding: 15px;
-            text-align: center;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+body{
+    background:white;
+    color:#333;
+}
 
-        header {
-            background: #2e7d32;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
+/* HERO SECTION */
+.hero{
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
 
-        .logo {
-            width: 120px;
-            margin-bottom: 15px;
-        }
+.hero-content img{
+    width:130px;
+    margin-bottom:20px;
+}
 
-        header h1 {
-            font-size: 40px;
-        }
+.hero h1{
+    font-size:52px;
+    margin-bottom:15px;
+}
 
-        section {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
 
-        h2 {
-            color: #1b5e20;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+.btn{
+    background:var(--light-green);
+    color:white;
+    padding:14px 35px;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+    display:inline-block;
+}
 
-        .services li {
-            background: white;
-            margin: 10px 0;
-            padding: 15px;
-            border-left: 5px solid #2e7d32;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            list-style: none;
-        }
+section{
+    padding:100px 8%;
+}
 
-        .team img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
+.section-title{
+    text-align:center;
+    font-size:38px;
+    color:var(--green);
+    margin-bottom:50px;
+}
 
-        .contact {
-            text-align: center;
-        }
+.about{
+    display:flex;
+    align-items:center;
+    gap:50px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #2e7d32;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 15px;
-        }
+.about-text{
+    width:50%;
+    font-size:18px;
+    line-height:1.7;
+}
 
-        footer {
-            background: #1b5e20;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-    </style>
+.about img{
+    width:50%;
+    border-radius:15px;
+}
+
+.services{
+    background:var(--gray);
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:30px;
+}
+
+.service-card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.service-card h3{
+    color:var(--green);
+    margin-bottom:10px;
+}
+
+@media(max-width:900px){
+    .about{
+        flex-direction:column;
+    }
+    .about-text, .about img{
+        width:100%;
+    }
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<header>
-    <img src="logo.png" alt="Near You Farmers Logo" class="logo">
-    <h1>Near You Farmers</h1>
-    <p>Mechanized Farming for a Sustainable Future</p>
-</header>
+<div class="hero">
+    <div class="hero-content">
+        <img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" alt="logo">
+        <h1>Near You Farmers</h1>
+        <p>Mechanized Farming for a Sustainable Future</p>
+        <a href="#about" class="btn">Learn More</a>
+    </div>
+</div>
 
 <section id="about">
-    <h2>About Us</h2>
-    <p>
-        Near You Farmers transforms theoretical agricultural knowledge into practical solutions 
-        by collaborating with local farmers, conducting research, and promoting mechanization.
-        We are committed to improving agricultural productivity and sustainability in Musanze and across Rwanda.
-    </p>
+    <h2 class="section-title">About Us</h2>
+    <div class="about">
+        <div class="about-text">
+            Near You Farmers transforms theoretical agricultural knowledge into 
+            practical solutions by collaborating with local farmers, conducting 
+            research, and promoting mechanization. We are committed to improving 
+            agricultural productivity and sustainability in Musanze and across Rwanda.
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=900&q=80">
+    </div>
 </section>
 
-<section id="services">
-    <h2>Our Services</h2>
-    <ul class="services">
-        <li>Farm Mechanization Support</li>
-        <li>Modern Agricultural Research</li>
-        <li>Farmer Training & Capacity Building</li>
-        <li>Hydroponics & Soil-less Farming</li>
-        <li>Agricultural Consulting</li>
-    </ul>
+<section class="services">
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <h3>🚜 Farm Mechanization Support</h3>
+            <p>Implementing advanced machinery to increase productivity.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>📄 Modern Agricultural Research</h3>
+            <p>Innovative research for sustainable farming solutions.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>🌱 Farmer Training & Capacity Building</h3>
+            <p>Empowering farmers with skills and knowledge.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>💧 Hydroponics & Soil-less Farming</h3>
+            <p>Cutting-edge soil-less farming techniques.</p>
+        </div>
+
+    </div>
 </section>
-
-<section id="team" class="team">
-    <h2>Our Professional Team</h2>
-    <p style="text-align:center;">
-        Our dedicated team of agricultural professionals working to transform farming in Rwanda.
-    </p>
-    <img src="team.jpg" alt="Near You Farmers Team">
-</section>
-
-<section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Location:</strong> Musanze, Rwanda</p>
-    <p><strong>Phone:</strong> +250 782 355 431</p>
-    <p>
-        <strong>Instagram:</strong><br>
-        <a href="https://www.instagram.com/near_you_farmers" target="_blank">
-            @near_you_farmers
-        </a>
-    </p>
-
-    <a class="btn" href="https://wa.me/250782355431" target="_blank">
-        Chat on WhatsApp
-    </a>
-</section>
-
-<footer>
-    © 2026 Near You Farmers | Musanze, Rwanda | All Rights Reserved
-</footer>
 
 </body>
 </html>
