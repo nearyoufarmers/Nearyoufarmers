@@ -13,6 +13,8 @@
     --green:#1B5E20;
     --light-green:#2e7d32;
     --gray:#f4f6f4;
+    --dark:#121212;
+    --white:#ffffff;
 }
 
 *{
@@ -20,18 +22,66 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
-    background:white;
     color:#333;
+    transition:0.4s;
 }
 
-/* HERO SECTION */
+.dark-mode{
+    background:var(--dark);
+    color:var(--white);
+}
+
+/* NAVBAR */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:white;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+    z-index:1000;
+}
+
+.dark-mode header{
+    background:#1e1e1e;
+}
+
+header img{
+    width:60px;
+}
+
+nav a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+
+.dark-mode nav a{
+    color:white;
+}
+
+nav a:hover{
+    color:var(--green);
+}
+
+.toggle{
+    cursor:pointer;
+    font-size:20px;
+}
+
+/* HERO */
 .hero{
     height:100vh;
-    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1600&q=80');
+    background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url('background.jpg');
     background-size:cover;
     background-position:center;
     display:flex;
@@ -39,36 +89,30 @@ body{
     justify-content:center;
     text-align:center;
     color:white;
-    padding:20px;
 }
 
 .hero-content img{
-    width:130px;
+    width:140px;
     margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:52px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:20px;
-    margin-bottom:30px;
+    font-size:55px;
 }
 
 .btn{
     background:var(--light-green);
     color:white;
-    padding:14px 35px;
+    padding:14px 40px;
+    border-radius:30px;
     text-decoration:none;
-    border-radius:8px;
-    font-weight:600;
     display:inline-block;
+    margin-top:25px;
 }
 
+/* SECTIONS */
 section{
-    padding:100px 8%;
+    padding:120px 8%;
 }
 
 .section-title{
@@ -78,81 +122,75 @@ section{
     margin-bottom:50px;
 }
 
-.about{
+/* STATS */
+.stats{
     display:flex;
-    align-items:center;
-    gap:50px;
+    justify-content:space-around;
+    text-align:center;
 }
 
-.about-text{
-    width:50%;
-    font-size:18px;
-    line-height:1.7;
+.stat h2{
+    font-size:50px;
+    color:var(--green);
 }
 
-.about img{
-    width:50%;
+/* GALLERY */
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.gallery-grid img{
+    width:100%;
     border-radius:15px;
 }
 
-.services{
-    background:var(--gray);
+/* CONTACT FORM */
+form{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
 }
 
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:30px;
+input, textarea{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
 }
 
-.service-card{
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.05);
-}
-
-.service-card h3{
-    color:var(--green);
-    margin-bottom:10px;
-}
-
-/* CONTACT SECTION */
-.contact{
-    text-align:center;
+button{
     background:var(--green);
     color:white;
-    padding:80px 20px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
 }
 
-.contact a{
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
+/* MAP */
+.map{
+    margin-top:50px;
 }
 
-/* WhatsApp Floating Button */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
+/* FOOTER */
+footer{
+    background:var(--green);
     color:white;
-    padding:15px;
-    border-radius:50%;
-    text-decoration:none;
-    font-size:22px;
+    text-align:center;
+    padding:40px 20px;
 }
 
+/* MOBILE */
 @media(max-width:900px){
-    .about{
-        flex-direction:column;
-    }
-    .about-text, .about img{
-        width:100%;
-    }
-    .service-grid{
+    .gallery-grid{
         grid-template-columns:1fr;
+    }
+    .stats{
+        flex-direction:column;
+        gap:30px;
     }
 }
 </style>
@@ -160,68 +198,99 @@ section{
 
 <body>
 
+<header>
+    <img src="logo.png">
+    <nav>
+        <a href="#">Home</a>
+        <a href="#stats">Impact</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="toggle" onclick="toggleDark()">🌙</div>
+</header>
+
 <div class="hero">
     <div class="hero-content">
-        <img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" alt="logo">
+        <img src="logo.png">
         <h1>Near You Farmers</h1>
         <p>Mechanized Farming for a Sustainable Future</p>
-        <a href="#about" class="btn">Learn More</a>
+        <a href="#contact" class="btn">Work With Us</a>
     </div>
 </div>
 
-<section id="about">
-    <h2 class="section-title">About Us</h2>
-    <div class="about">
-        <div class="about-text">
-            Near You Farmers transforms theoretical agricultural knowledge into 
-            practical solutions by collaborating with local farmers, conducting 
-            research, and promoting mechanization. We are committed to improving 
-            agricultural productivity and sustainability in Musanze and across Rwanda.
+<section id="stats">
+    <h2 class="section-title">Our Impact</h2>
+    <div class="stats">
+        <div class="stat">
+            <h2 class="counter" data-target="150">0</h2>
+            <p>Farmers Supported</p>
         </div>
-
-        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=900&q=80">
+        <div class="stat">
+            <h2 class="counter" data-target="25">0</h2>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat">
+            <h2 class="counter" data-target="5">0</h2>
+            <p>Years Experience</p>
+        </div>
     </div>
 </section>
 
-<section class="services">
-    <h2 class="section-title">Our Services</h2>
-
-    <div class="service-grid">
-
-        <div class="service-card">
-            <h3>🚜 Farm Mechanization Support</h3>
-            <p>Implementing advanced machinery to increase productivity.</p>
-        </div>
-
-        <div class="service-card">
-            <h3>📄 Modern Agricultural Research</h3>
-            <p>Innovative research for sustainable farming solutions.</p>
-        </div>
-
-        <div class="service-card">
-            <h3>🌱 Farmer Training & Capacity Building</h3>
-            <p>Empowering farmers with skills and knowledge.</p>
-        </div>
-
-        <div class="service-card">
-            <h3>💧 Hydroponics & Soil-less Farming</h3>
-            <p>Cutting-edge soil-less farming techniques.</p>
-        </div>
-
+<section id="gallery">
+    <h2 class="section-title">Gallery</h2>
+    <div class="gallery-grid">
+        <img src="background.jpg">
+        <img src="background.jpg">
+        <img src="background.jpg">
     </div>
 </section>
 
-<section class="contact">
-    <h2>Contact Us</h2>
-    <p>📞 Phone: +250 782 355 431</p>
-    <p>📱 WhatsApp: <a href="https://wa.me/250782355431" target="_blank">+250 782 355 431</a></p>
-    <p>📷 Instagram: 
-        <a href="https://www.instagram.com/near_you_farmers?igsh=N3MyZmhrY2l1cHds" target="_blank">
-        @near_you_farmers</a>
-    </p>
+<section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <form action="mailto:nearyoufarmers@gmail.com" method="POST" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Your Name" required>
+        <input type="email" name="Email" placeholder="Your Email" required>
+        <textarea name="Message" rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div class="map">
+        <iframe 
+        src="https://www.google.com/maps?q=Musanze,Rwanda&output=embed"
+        width="100%" height="350" style="border:0;" allowfullscreen>
+        </iframe>
+    </div>
 </section>
 
-<a href="https://wa.me/250782355431" class="whatsapp" target="_blank">💬</a>
+<footer>
+    <p>📧 nearyoufarmers@gmail.com</p>
+    <p>📍 Musanze, Rwanda</p>
+    <p>© 2026 Near You Farmers</p>
+</footer>
+
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark-mode");
+}
+
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+    const update = ()=>{
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target/100;
+
+        if(count < target){
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(update, 20);
+        } else{
+            counter.innerText = target;
+        }
+    }
+    update();
+});
+</script>
 
 </body>
 </html>
